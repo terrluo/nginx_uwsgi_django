@@ -16,3 +16,9 @@ migrate:
 
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
+
+start_docker:
+	docker-compose up -d
+
+stop_docker:
+	docker-compose down --remove-orphans
