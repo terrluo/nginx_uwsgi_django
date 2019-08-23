@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./conf/mysql:/etc/mysql/conf.d
+    environment:
+      - MYSQL_DATABASE=demo
+      - MYSQL_ROOT_PASSWORD=mysql
+
+  nginx:
+    image: nginx:1.13
+    volumes:
+      - ./conf/nginx:/etc/nginx/conf.d
+      - ./static:/usr/share/nginx/html/static
+      - ./media:/usr/share/nginx/html/media
+    ports:
+      - "8000:80"
+    depends_on:
+      - web
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: /code/entrypoint.sh
+    command: prod
+    volumes:
+      - .:/code
+    environment:
+      - DB_NAME=demo
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASS=mysql
+    depends_on:
+      - mysql
