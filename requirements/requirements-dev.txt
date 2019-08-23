@@ -1,3 +1,4 @@
 -i https://pypi.douban.com/simple
 -r requirements.txt
+uwsgi==2.0.18
 mysqlclient==1.4.4
