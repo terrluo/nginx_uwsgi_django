@@ -15,6 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run docker
       run: |
-        make start_docker
-        docker ps -a
-        docker exec -it docker_nginx_uwsgi_django_mysql_web_1 bash
+        docker-compose up
+        python manage.py test
