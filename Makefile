@@ -18,10 +18,6 @@ migrate:
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
 
-test:
-	docker-compose exec web /bin/bash
-	python manage.py test
-
 start_docker:
 	docker-compose up -d
 
