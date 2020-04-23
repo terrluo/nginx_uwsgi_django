@@ -15,5 +15,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run docker
       run: |
-        docker-compose up
+        make start_docker
+        docker-compose -T exec web sh 
         python manage.py test
