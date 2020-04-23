@@ -17,3 +17,4 @@ jobs:
       run: |
         make start_docker
         docker ps -a
+        docker exec -it docker_nginx_uwsgi_django_mysql_web_1 bash
