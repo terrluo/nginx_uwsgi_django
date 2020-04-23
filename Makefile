@@ -1,5 +1,5 @@
 base:
-	pip install --upgrade pip
+	pip install --upgrade pip -i https://pypi.douban.com/simple
 	pip install -r requirements/requirements.txt
 
 dev:
@@ -14,6 +14,9 @@ collectstatic:
 migrate:
 	python manage.py makemigrations
 	python manage.py migrate
+
+test:
+	python manage.py test --settings=demo.settings.settings-dev
 
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
