@@ -16,9 +16,9 @@ migrate:
 
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
-	
+
 test:
-        python manage.py test
+	python manage.py test
 
 start_docker:
 	docker-compose up -d
