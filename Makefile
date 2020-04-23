@@ -16,7 +16,7 @@ migrate:
 	python manage.py migrate
 
 test:
-	docker-compose exec -T web sh -c 'python manage.py test --settings=demo.settings.settings-dev'
+	docker-compose exec -T web sh -c 'entrypoint.sh dev test'
 
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
