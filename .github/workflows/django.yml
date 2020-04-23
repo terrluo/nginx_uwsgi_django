@@ -16,5 +16,5 @@ jobs:
     - name: Run docker
       run: |
         make start_docker
-        docker-compose exec -T web sh 
-        python manage.py test
+        docker-compose run web python manage.py test
+#        docker-compose exec -T web sh python manage.py test
