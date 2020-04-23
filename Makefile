@@ -19,6 +19,7 @@ run:
 	uwsgi conf/uwsgi/uwsgi.ini
 
 test:
+	docker exec -it web /bin/bash
 	python manage.py test
 
 start_docker:
