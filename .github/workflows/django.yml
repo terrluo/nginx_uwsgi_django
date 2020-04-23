@@ -16,3 +16,7 @@ jobs:
     - name: Run docker
       run: |
         make start_docker
+        make collectstatic
+        make migrate
+        make run
+        make test
