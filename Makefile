@@ -19,7 +19,7 @@ run:
 	uwsgi conf/uwsgi/uwsgi.ini
 
 test:
-	docker exec -it web /bin/bash
+	docker-compose exec web sh
 	python manage.py test
 
 start_docker:
