@@ -10,4 +10,3 @@ fi
 make collectstatic
 make migrate
 make run
-make test
