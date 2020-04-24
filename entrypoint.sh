@@ -9,4 +9,9 @@ fi
 
 make collectstatic
 make migrate
-make run
+
+if [[ "$2" == "test" ]]; then
+  python manage.py test
+else
+  make run
+fi

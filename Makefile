@@ -1,4 +1,5 @@
 base:
+	pip install --upgrade pip -i https://pypi.douban.com/simple
 	pip install -r requirements/requirements.txt
 
 dev:
@@ -14,5 +15,14 @@ migrate:
 	python manage.py makemigrations
 	python manage.py migrate
 
+test:
+	docker-compose exec -T web sh -c './entrypoint.sh dev test'
+
 run:
 	uwsgi conf/uwsgi/uwsgi.ini
+
+start_docker:
+	docker-compose up -d
+
+stop_docker:
+	docker-compose down --remove-orphans
